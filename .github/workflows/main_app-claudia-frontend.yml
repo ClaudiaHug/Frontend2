@@ -27,7 +27,7 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-          npm run test --if-present --passWithNoTests
+          npm run test --if-present
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -51,9 +51,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_DD40B8A8FBD94DF18A75AA5476973EB1 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3FB1687056A448C4882BD282A52088E2 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_4A2D83645993455F8D534363A74BF58C }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_3FEBFB6FD1BC4EC08AD428D947C7D856 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DC0718FB5692405CB08F5E20976EC3A3 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_38619A576BE546038D5B373467688173 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -62,5 +62,4 @@ jobs:
           app-name: 'app-claudia-frontend'
           slot-name: 'Production'
           package: .
-
           
